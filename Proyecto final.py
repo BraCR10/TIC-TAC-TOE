@@ -143,5 +143,11 @@ try:
     display_board(board)
     if win==False:
         print('\n --Ha terminado el juego, no hubo un ganador!')
-except:
+except ValueError:
+    print('Algo salio mal!, reinicia el programa')
+except TypeError:
+    print('Algo salio mal!, reinicia el programa')
+except SyntaxError:
+    print('Algo salio mal!, reinicia el programa')
+except AttributeError:
     print('Algo salio mal!, reinicia el programa')

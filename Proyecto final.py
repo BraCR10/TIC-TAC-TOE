@@ -1,6 +1,6 @@
 import random
 
-def display_board(board):
+'''def display_board(board):
     # La función acepta un parámetro el cual contiene el estado actual del tablero
     # y lo muestra en la consola.
     print('+-','-'*28,'+',sep='')
@@ -54,14 +54,29 @@ def display_board(board):
                 continue
             print('-',end='')
         else:
-            print('+\n',end='')
+            print('+\n',end='')'''
 
+def display_board(board):
+    # La función acepta un parámetro el cual contiene el estado actual del tablero
+    # y lo muestra en la consola.
+    print('+-','-'*28,'+',sep='')
+    print('|',' '*7,'TIC-TAC-TOE',' '*7,'|')
+    print('+-','-'*8,'+','-'*9,'+','-'*9,'+',sep='')   
+    for row in range(3):
+        print('|         '*4)
+        for colum in range(3):
+            print('|    ',end='')
+            print(board[row][colum],end='    ')
+        print('|')
+        print('|         '*4)
+        print('+-','-'*8,'+','-'*9,'+','-'*9,'+',sep='')
+        
 def enter_move(board,checkS,dicc):
     # La función acepta el estado actual del tablero y pregunta al usuario acerca de su movimiento,  
     # verifica la entrada y actualiza el tablero acorde a la decisión del usuario.
     while True:
         num=int(input('Ingrese un numero para insertar la figura: '))
-        if num>9:#Evitar un numero no valido
+        if num<=0 or num>9:#Evitar un numero no valido
             print('Esa casilla no existe! ')
             continue
         if num in checkS:#Verifica que el numero no este ya usado
@@ -111,11 +126,11 @@ def victory_for(board, dicc):
         dicc.clear()  
         win=True     
     #Verifica toda las diagonales
-    if board[0][0]=='O' and board[1][1]=='O' and board[2][2]=='O':
+    if board[0][0]=='O' and board[1][1]=='O' and board[2][2]=='O' or board[2][0]=='O' and board[1][1]=='O' and board[0][2]=='O':
         print('\n--Has ganado, felicidades!')    
         dicc.clear()
         win=True
-    elif board[0][2]=='O' and board[1][1]=='O' and board[2][1]=='O':
+    elif board[0][0]=='X' and board[1][1]=='X' and board[2][2]=='X' or board[2][0]=='X' and board[1][1]=='X' and board[0][2]=='X':
         print('\n--He ganado yo!, suerte en la proxima')    
         dicc.clear() 
         win=True

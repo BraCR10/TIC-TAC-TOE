@@ -76,7 +76,7 @@ def enter_move(board,checkS,dicc):
     # verifica la entrada y actualiza el tablero acorde a la decisión del usuario.
     while True:
         num=int(input('Ingrese un numero para insertar la figura: '))
-        if num>9:#Evitar un numero no valido
+        if num<=0 or num>9:#Evitar un numero no valido
             print('Esa casilla no existe! ')
             continue
         if num in checkS:#Verifica que el numero no este ya usado

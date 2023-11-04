@@ -1,6 +1,6 @@
 import random
 
-def display_board(board):
+'''def display_board(board):
     # La función acepta un parámetro el cual contiene el estado actual del tablero
     # y lo muestra en la consola.
     print('+-','-'*28,'+',sep='')
@@ -54,8 +54,23 @@ def display_board(board):
                 continue
             print('-',end='')
         else:
-            print('+\n',end='')
+            print('+\n',end='')'''
 
+def display_board(board):
+    # La función acepta un parámetro el cual contiene el estado actual del tablero
+    # y lo muestra en la consola.
+    print('+-','-'*28,'+',sep='')
+    print('|',' '*7,'TIC-TAC-TOE',' '*7,'|')
+    print('+-','-'*8,'+','-'*9,'+','-'*9,'+',sep='')   
+    for row in range(3):
+        print('|         '*4)
+        for colum in range(3):
+            print('|    ',end='')
+            print(board[row][colum],end='    ')
+        print('|')
+        print('|         '*4)
+        print('+-','-'*8,'+','-'*9,'+','-'*9,'+',sep='')
+        
 def enter_move(board,checkS,dicc):
     # La función acepta el estado actual del tablero y pregunta al usuario acerca de su movimiento,  
     # verifica la entrada y actualiza el tablero acorde a la decisión del usuario.
